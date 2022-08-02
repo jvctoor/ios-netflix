@@ -7,9 +7,17 @@
 
 import UIKit
 
+enum Sections: Int {
+    case TrendingMovies = 0
+    case TrendingTv = 1
+    case Popular = 2
+    case Upcoming = 3
+    case TopRated = 4
+}
+
 class HomeViewController: UIViewController {
     
-    let sectionTitles: [String] = ["Popular","Trending movies", "Trending TV", "Top rated", "Upcoming movies"]
+    let sectionTitles: [String] = ["Trending movies", "Trending TV", "Popular", "Upcoming movies", "Top rated"]
     
     private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -35,7 +43,6 @@ class HomeViewController: UIViewController {
         let headerView = HeroHeaderUIView.init(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
         
-        fetchData()
     
     }
     
@@ -58,19 +65,6 @@ class HomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         homeFeedTable.frame = view.bounds
     }
-    
-    private func fetchData() {
-        
-        APICaller.shared.getTopRatedMovies(completion: { results in
-            switch results {
-            case .success(let movies):
-                print(movies)
-            case .failure(let error):
-                print(error)
-            }
-        })
-        
-    }
 
 }
 
@@ -86,11 +80,62 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
+        guard let LinhadeFilmes = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
         
-        return cell
+        switch indexPath.section {
+        case Sections.TrendingMovies.rawValue:
+            APICaller.shared.getTrendingMovies { response in
+                switch response {
+                case .success(let titles):
+                    LinhadeFilmes.configure(with: titles)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        case Sections.TrendingTv.rawValue:
+            APICaller.shared.getTrendingTvs { response in
+                switch response {
+                case .success(let titles):
+                    LinhadeFilmes.configure(with: titles)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        case Sections.Popular.rawValue:
+            APICaller.shared.getPopularMovies { response in
+                switch response {
+                case .success(let titles):
+                    LinhadeFilmes.configure(with: titles)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        case Sections.Upcoming.rawValue:
+            APICaller.shared.getUpcomingMovies { response in
+                switch response {
+                case .success(let titles):
+                    LinhadeFilmes.configure(with: titles)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        case Sections.TopRated.rawValue:
+            APICaller.shared.getTopRatedMovies { response in
+                switch response {
+                case .success(let titles):
+                    LinhadeFilmes.configure(with: titles)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+
+        default:
+            print("erro")
+        }
+        
+        return LinhadeFilmes
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
