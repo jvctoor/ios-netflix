@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BA7BE1FB2898969100F7936E /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BE1FA2898969100F7936E /* Movie.swift */; };
+		BA7BE1FB2898969100F7936E /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BE1FA2898969100F7936E /* Title.swift */; };
 		BA7BE1FD2898A2DA00F7936E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BE1FC2898A2DA00F7936E /* Extensions.swift */; };
 		BA7BE1FF2898A32800F7936E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BE1FE2898A32800F7936E /* Constants.swift */; };
 		BAA1BC002895A93B00032B5B /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA1BBFF2895A93B00032B5B /* APICaller.swift */; };
@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BA7BE1FA2898969100F7936E /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		BA7BE1FA2898969100F7936E /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		BA7BE1FC2898A2DA00F7936E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BA7BE1FE2898A32800F7936E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BAA1BBFF2895A93B00032B5B /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		BACD05FC28934FB500C266A4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BA7BE1FA2898969100F7936E /* Movie.swift */,
+				BA7BE1FA2898969100F7936E /* Title.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,7 +223,7 @@
 				BA7BE1FD2898A2DA00F7936E /* Extensions.swift in Sources */,
 				BAE890EF286E61F700C9A6C2 /* SceneDelegate.swift in Sources */,
 				BAE89104286E662C00C9A6C2 /* UpcomingViewController.swift in Sources */,
-				BA7BE1FB2898969100F7936E /* Movie.swift in Sources */,
+				BA7BE1FB2898969100F7936E /* Title.swift in Sources */,
 				BAE89102286E653000C9A6C2 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
