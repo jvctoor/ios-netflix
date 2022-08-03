@@ -15,6 +15,7 @@
 		BA7BE2082898BAB800F7936E /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BA7BE2072898BAB800F7936E /* SDWebImageMapKit */; };
 		BA7BE20A2899E40600F7936E /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BE2092899E40600F7936E /* TitleTableViewCell.swift */; };
 		BA7BE2102899EB2C00F7936E /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BE20F2899EB2C00F7936E /* TitleViewModel.swift */; };
+		BA7BE2122899F72B00F7936E /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BE2112899F72B00F7936E /* SearchResultsViewController.swift */; };
 		BAA1BC002895A93B00032B5B /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA1BBFF2895A93B00032B5B /* APICaller.swift */; };
 		BACD06002893501A00C266A4 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACD05FF2893501A00C266A4 /* CollectionViewTableViewCell.swift */; };
 		BACD06022893554100C266A4 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACD06012893554100C266A4 /* HeroHeaderUIView.swift */; };
@@ -36,6 +37,7 @@
 		BA7BE2022898B9A200F7936E /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		BA7BE2092899E40600F7936E /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		BA7BE20F2899EB2C00F7936E /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
+		BA7BE2112899F72B00F7936E /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		BAA1BBFF2895A93B00032B5B /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		BACD05FF2893501A00C266A4 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		BACD06012893554100C266A4 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
@@ -71,6 +73,25 @@
 				BA7BE20F2899EB2C00F7936E /* TitleViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BA7BE2132899F78D00F7936E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BAE89101286E653000C9A6C2 /* HomeViewController.swift */,
+				BAE89103286E662C00C9A6C2 /* UpcomingViewController.swift */,
+				BAE89105286E665D00C9A6C2 /* SearchViewController.swift */,
+				BAE89107286E668B00C9A6C2 /* DownloadsViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		BA7BE2142899F79A00F7936E /* General */ = {
+			isa = PBXGroup;
+			children = (
+				BA7BE2112899F72B00F7936E /* SearchResultsViewController.swift */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 		BACD05FA28934FA400C266A4 /* Views */ = {
@@ -147,10 +168,8 @@
 		BAE89100286E650700C9A6C2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BAE89101286E653000C9A6C2 /* HomeViewController.swift */,
-				BAE89103286E662C00C9A6C2 /* UpcomingViewController.swift */,
-				BAE89105286E665D00C9A6C2 /* SearchViewController.swift */,
-				BAE89107286E668B00C9A6C2 /* DownloadsViewController.swift */,
+				BA7BE2142899F79A00F7936E /* General */,
+				BA7BE2132899F78D00F7936E /* Core */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -233,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAE89106286E665D00C9A6C2 /* SearchViewController.swift in Sources */,
+				BA7BE2122899F72B00F7936E /* SearchResultsViewController.swift in Sources */,
 				BAE890F1286E61F700C9A6C2 /* MainTabBarViewController.swift in Sources */,
 				BACD06002893501A00C266A4 /* CollectionViewTableViewCell.swift in Sources */,
 				BAA1BC002895A93B00032B5B /* APICaller.swift in Sources */,

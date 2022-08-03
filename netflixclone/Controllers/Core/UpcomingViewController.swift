@@ -61,7 +61,7 @@ extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
 
-        upcomingCell.configurePost(with: upcomingTitles[indexPath.row].poster_path!, label: upcomingTitles[indexPath.row].original_name ?? upcomingTitles[indexPath.row].original_title ?? "Unknown")
+        upcomingCell.configurePost(with: TitleViewModel(titleName: upcomingTitles[indexPath.row].original_name ?? upcomingTitles[indexPath.row].original_title ?? "Unknown", posterURL: upcomingTitles[indexPath.row].poster_path!))
         return upcomingCell
         
     }
@@ -71,7 +71,7 @@ extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200.00
+        return 180.0
     }
     
 }
