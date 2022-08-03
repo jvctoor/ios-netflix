@@ -41,6 +41,8 @@ class SearchViewController: UIViewController {
         discoverTable.dataSource = self
         
         fetchDiscoverMovies()
+        
+        searchController.searchResultsUpdater = self
     }
 
     override func viewDidLayoutSubviews() {
@@ -49,7 +51,7 @@ class SearchViewController: UIViewController {
     }
     
     private func fetchDiscoverMovies() {
-        APICaller.shared.getUpcomingMovies { [weak self] response in
+        APICaller.shared.getDiscoverMovies { [weak self] response in
             switch response {
             case .success(let results):
                 self?.titles = results
@@ -82,6 +84,32 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180.0
+    }
+    
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        
+        guard let query = searchBar.text,
+              !query.trimmingCharacters(in: .whitespaces).isEmpty,
+              query.trimmingCharacters(in: .whitespaces).count >= 3,
+              let resultsController = searchController.searchResultsController as? SearchResultsViewController else { return }
+        
+        APICaller.shared.search(with: query) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let titles):
+                    resultsController.titles = titles
+                    resultsController.searchResultsCollectionView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+        
     }
     
 }
