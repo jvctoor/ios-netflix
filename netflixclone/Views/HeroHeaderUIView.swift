@@ -12,7 +12,7 @@ class HeroHeaderUIView: UIView {
     private let saveMovieButton: UIButton = {
         
         let button = UIButton()
-        button.setTitle("Save in your list", for: .normal)
+        button.setTitle("Watch now", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -24,13 +24,22 @@ class HeroHeaderUIView: UIView {
     private let playButton: UIButton = {
         
         let button = UIButton()
-        button.setTitle("Watch now", for: .normal)
+        button.setTitle("Save in your list", for: .normal)
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 5
         return button
         
+    }()
+    
+    private let stack: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.distribution = .fillProportionally
+        stack.spacing = 10
+        return stack
     }()
     
     private let heroImageView: UIImageView = {
@@ -41,34 +50,50 @@ class HeroHeaderUIView: UIView {
         return imageView
     }()
     
+    private let logoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.image = UIImage(named: "spidermanLogo")
+        return imageView
+    }()
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(heroImageView)
         addGradient()
-        addSubview(playButton)
-        addSubview(saveMovieButton)
+        setupStack()
+        addSubview(stack)
+        addSubview(logoImageView)
         applyConstraints()
         
     }
     
+    private func setupStack() {
+        stack.addArrangedSubview(saveMovieButton)
+        stack.addArrangedSubview(playButton)
+    }
+    
     private func applyConstraints() {
-        let playButtonConstraints = [
-            playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
-            playButton.widthAnchor.constraint(equalToConstant: 130),
-            playButton.heightAnchor.constraint(equalToConstant: 40)
+        
+        let stackConstraints = [
+            stack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
+            stack.leftAnchor.constraint(equalTo: leftAnchor, constant: 30),
+            stack.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
+            stack.heightAnchor.constraint(equalToConstant: 45)
         ]
         
-        let saveConstraints = [
-            saveMovieButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            saveMovieButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
-            saveMovieButton.widthAnchor.constraint(equalToConstant: 160),
-            saveMovieButton.heightAnchor.constraint(equalToConstant: 40)
+        let logoConstraints = [
+            logoImageView.bottomAnchor.constraint(equalTo: stack.topAnchor, constant: 200),
+            logoImageView.widthAnchor.constraint(equalToConstant: 300),
+            logoImageView.centerXAnchor.constraint(equalTo: centerXAnchor)
+            
         ]
         
-        NSLayoutConstraint.activate(playButtonConstraints)
-        NSLayoutConstraint.activate(saveConstraints)
+        NSLayoutConstraint.activate(stackConstraints)
+        NSLayoutConstraint.activate(logoConstraints)
     }
     
     private func addGradient() {
