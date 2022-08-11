@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
 
         view.backgroundColor = .systemBackground
         
+        
         title="Find movies"
         navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -83,6 +84,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let LinhadeFilmes = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
+        
+        LinhadeFilmes.delegate = self
         
         switch indexPath.section {
         case Sections.TrendingMovies.rawValue:
@@ -161,10 +164,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let defaultOffset = view.safeAreaInsets.top
-        let offset = scrollView.contentOffset.y + defaultOffset
+        //let defaultOffset = view.safeAreaInsets.top
+        //let offset = scrollView.contentOffset.y + defaultOffset
         
-        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
+        //navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
     }
     
+}
+
+extension HomeViewController: CollectionViewTableViewCellDelegate {
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
+        
+        DispatchQueue.main.async { [weak self] in
+            let vc = TitlePreviewViewController()
+            vc.configure(with: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
