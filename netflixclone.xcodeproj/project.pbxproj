@@ -16,6 +16,8 @@
 		BA7BE20A2899E40600F7936E /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BE2092899E40600F7936E /* TitleTableViewCell.swift */; };
 		BA7BE2102899EB2C00F7936E /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BE20F2899EB2C00F7936E /* TitleViewModel.swift */; };
 		BA7BE2122899F72B00F7936E /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BE2112899F72B00F7936E /* SearchResultsViewController.swift */; };
+		BA7D378128A48D9C0064940C /* YoutubeSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D378028A48D9C0064940C /* YoutubeSearchResponse.swift */; };
+		BA7D378328A4924B0064940C /* TitlePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7D378228A4924B0064940C /* TitlePreviewViewController.swift */; };
 		BAA1BC002895A93B00032B5B /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA1BBFF2895A93B00032B5B /* APICaller.swift */; };
 		BACD06002893501A00C266A4 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACD05FF2893501A00C266A4 /* CollectionViewTableViewCell.swift */; };
 		BACD06022893554100C266A4 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACD06012893554100C266A4 /* HeroHeaderUIView.swift */; };
@@ -38,6 +40,8 @@
 		BA7BE2092899E40600F7936E /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		BA7BE20F2899EB2C00F7936E /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
 		BA7BE2112899F72B00F7936E /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		BA7D378028A48D9C0064940C /* YoutubeSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeSearchResponse.swift; sourceTree = "<group>"; };
+		BA7D378228A4924B0064940C /* TitlePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePreviewViewController.swift; sourceTree = "<group>"; };
 		BAA1BBFF2895A93B00032B5B /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		BACD05FF2893501A00C266A4 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		BACD06012893554100C266A4 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				BA7BE2112899F72B00F7936E /* SearchResultsViewController.swift */,
+				BA7D378228A4924B0064940C /* TitlePreviewViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				BA7BE1FA2898969100F7936E /* Title.swift */,
+				BA7D378028A48D9C0064940C /* YoutubeSearchResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -260,9 +266,11 @@
 				BAE89108286E668B00C9A6C2 /* DownloadsViewController.swift in Sources */,
 				BAE890ED286E61F700C9A6C2 /* AppDelegate.swift in Sources */,
 				BA7BE2032898B9A200F7936E /* TitleCollectionViewCell.swift in Sources */,
+				BA7D378328A4924B0064940C /* TitlePreviewViewController.swift in Sources */,
 				BA7BE1FF2898A32800F7936E /* Constants.swift in Sources */,
 				BA7BE1FD2898A2DA00F7936E /* Extensions.swift in Sources */,
 				BA7BE20A2899E40600F7936E /* TitleTableViewCell.swift in Sources */,
+				BA7D378128A48D9C0064940C /* YoutubeSearchResponse.swift in Sources */,
 				BAE890EF286E61F700C9A6C2 /* SceneDelegate.swift in Sources */,
 				BAE89104286E662C00C9A6C2 /* UpcomingViewController.swift in Sources */,
 				BA7BE2102899EB2C00F7936E /* TitleViewModel.swift in Sources */,
