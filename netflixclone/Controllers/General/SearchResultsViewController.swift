@@ -54,5 +54,6 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         cell.configure(with: titles[indexPath.row].poster_path ?? "Unknown")
         return cell
     }
+
     
 }

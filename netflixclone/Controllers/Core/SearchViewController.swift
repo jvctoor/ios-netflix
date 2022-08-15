@@ -86,6 +86,40 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         return 180.0
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let title = titles[indexPath.row]
+        
+        guard let titleName = title.original_name ?? title.original_title else {
+            return
+        }
+        
+        APICaller.shared.getMovie(with: titleName + " trailer") { [weak self] response in
+            switch response {
+            case .success(let video):
+                //let title = self?.titles[indexPath.row]
+                
+                guard let titleOverview = title.overview else { return }
+                
+                let model = TitlePreviewViewModel(title: titleName, youtubeView: video, titleOverview: titleOverview)
+                self?.presentTitlePreview(with: model)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    private func presentTitlePreview(with model: TitlePreviewViewModel) {
+        DispatchQueue.main.async {
+            let vc = TitlePreviewViewController()
+            vc.configure(with: model)
+            self.navigationController?.navigationBar.tintColor = .white
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
 }
 
 extension SearchViewController: UISearchResultsUpdating {
