@@ -73,7 +73,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
 
-        cell.configurePost(with: TitleViewModel(titleName: titles[indexPath.row].original_name ?? titles[indexPath.row].original_title ?? "Unknown", posterURL: titles[indexPath.row].poster_path!))
+        cell.configurePost(with: TitleViewModel(titleName: titles[indexPath.row].original_name ?? titles[indexPath.row].original_title ?? "Unknown", posterURL: titles[indexPath.row].poster_path!, overview: titles[indexPath.row].overview ?? ""))
         return cell
         
     }

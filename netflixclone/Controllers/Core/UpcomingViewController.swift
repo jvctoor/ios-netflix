@@ -63,7 +63,7 @@ extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        upcomingCell.configurePost(with: TitleViewModel(titleName: upcomingTitles[indexPath.row].original_name ?? upcomingTitles[indexPath.row].original_title ?? "Unknown", posterURL: upcomingTitles[indexPath.row].poster_path!))
+        upcomingCell.configurePost(with: TitleViewModel(titleName: upcomingTitles[indexPath.row].original_name ?? upcomingTitles[indexPath.row].original_title ?? "Unknown", posterURL: upcomingTitles[indexPath.row].poster_path!, overview: upcomingTitles[indexPath.row].overview ?? ""))
         
         return upcomingCell
         

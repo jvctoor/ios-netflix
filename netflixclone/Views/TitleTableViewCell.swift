@@ -33,7 +33,16 @@ class TitleTableViewCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 19, weight: .bold)
+        return label
+    }()
+    
+    private let overviewLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 3
+        label.textColor = .systemGray
         return label
     }()
     
@@ -41,6 +50,7 @@ class TitleTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(titlesPosterImage)
         contentView.addSubview(titleLabel)
+        contentView.addSubview(overviewLabel)
         contentView.addSubview(playButton)
         applyConstraints()
     }
@@ -64,8 +74,14 @@ class TitleTableViewCell: UITableViewCell {
         
         let titleLabelConstraints = [
             titleLabel.leadingAnchor.constraint(equalTo: titlesPosterImage.trailingAnchor, constant: 20),
-            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: contentView.topAnchor, constant: 40),
             titleLabel.trailingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: -40)
+        ]
+        
+        let overviewConstraints = [
+            overviewLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            overviewLabel.leadingAnchor.constraint(equalTo: titlesPosterImage.trailingAnchor, constant: 20),
+            overviewLabel.trailingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: -40)
         ]
         
         let playButtonConstraints = [
@@ -75,12 +91,18 @@ class TitleTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate(titlesPosterImageConstraints)
         NSLayoutConstraint.activate(titleLabelConstraints)
+        NSLayoutConstraint.activate(overviewConstraints)
         NSLayoutConstraint.activate(playButtonConstraints)
     }
     
     public func configurePost(with model: TitleViewModel) {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.posterURL)") else { return }
         titleLabel.text = model.titleName
+        
+        if let overviewText = model.overview {
+            overviewLabel.text = overviewText
+        }
+        
         titlesPosterImage.sd_setImage(with: url, completed: nil)
     }
 
